@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>吃什么 · 图片优先与滑动交互</title>
+<link rel="stylesheet" href="design-tokens.css">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2ede5;color:var(--color-text);font-family:var(--font-ui);line-height:1.7}a{color:var(--color-action);text-underline-offset:5px}
+.wrap{width:min(1320px,calc(100% - 64px));margin:auto}header{padding:32px 0 52px}nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:24px;border-bottom:1px solid #d7cbbf}.wordmark{font-size:24px;font-weight:750;color:var(--color-text);text-decoration:none}.navlinks{display:flex;gap:24px;font-size:14px;flex-wrap:wrap}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;align-items:end;gap:48px;padding-top:54px}.eyebrow{font-size:13px;letter-spacing:1.4px;color:var(--color-action);font-weight:600}h1{margin:14px 0 0;font-size:clamp(36px,4.2vw,62px);line-height:1.23;letter-spacing:-2px}h2{margin:0;font-size:30px;line-height:1.4}.lead{margin:0;font-size:17px;color:var(--color-text-secondary)}.mini{font-size:13px;color:var(--color-text-secondary)}
+section{margin-bottom:72px;scroll-margin-top:24px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:24px}.section-head p{max-width:550px;margin:0;color:var(--color-text-secondary)}
+.board{display:block;overflow:hidden;border:1px solid #dfd6cc;border-radius:20px;background:#f2ede5}.board img{display:block;width:100%;height:auto}.screens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}figure{margin:0;min-width:0}figure img{display:block;width:100%;height:auto;border:1px solid #d9cdbf;border-radius:26px}figcaption{margin-top:18px}figcaption strong{font-size:18px}figcaption p{color:var(--color-text-secondary);font-size:14px;margin:8px 0}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}.principles article{border-top:2px solid var(--color-action);padding-top:20px}.principles h3{font-size:21px;margin:0 0 12px}.principles p{margin:0;color:var(--color-text-secondary);font-size:15px}.downloads{background:var(--color-bg);border-radius:24px;padding:32px}.download-links{display:flex;flex-wrap:wrap;gap:16px 32px;margin-top:20px}footer{border-top:1px solid #d7cbbf;padding:28px 0 42px;font-size:13px;color:var(--color-text-secondary)}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:24px;padding-top:36px}.section-head{display:block}.section-head p{margin-top:12px}.screens{gap:20px}}
+@media(max-width:600px){.wrap{width:calc(100% - 40px)}header{padding-bottom:36px}.navlinks{gap:12px;font-size:12px}.screens,.principles{grid-template-columns:1fr;gap:36px}figure{max-width:390px;margin:auto}h1{letter-spacing:-1px}section{margin-bottom:48px}.downloads{padding:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap">
+<nav aria-label="设计资料"><a class="wordmark" href="#">吃什么。</a><div class="navlinks"><a href="#screens">核心图样</a><a href="#gesture">滑动与详情</a><a href="#system">视觉规范</a></div></nav>
+<div class="hero"><div><div class="eyebrow">DESIGN LANGUAGE · V1.1 / 2026.09</div><h1>看见食欲，<br>滑向这一顿。</h1></div><div><p class="lead">让大图承载第一眼的吸引力。<br>左滑换一个，右滑就吃这个。<br>想多了解时，细节就在 ⓘ 里。</p><p class="mini">本页展示静态设计参考；手势尚未实现，供后续开发采用。</p></div></div>
+</header>
+<main class="wrap">
+<section aria-label="设计总览"><a class="board" href="references/00-design-overview.png" target="_blank" rel="noopener"><img src="references/00-design-overview.png" width="2960" height="2400" alt="新版入口、大图推荐卡与选定结果总览"></a><p class="mini">点击图样查看原尺寸。校园、菜品、价格、配料、时间和位置均为设计演示数据，食物照片为示意。</p></section>
+<section class="principles" aria-label="设计变化">
+<article><h3>图片空间约翻倍</h3><p>主图由 350 × 245 增至 358 × 492 px，约占参考视口高度的 58%。菜名、价格和位置仍直接可见。</p></article>
+<article><h3>符号承担高频动作</h3><p>撤回、跳过、选定采用圆形图标。首次一行提示帮助理解方向；点按与滑动执行相同动作。</p></article>
+<article><h3>滑动有明确终点</h3><p>左滑只跳过这一张，右滑选定这一顿。选好后转向位置与路线，误操作可以撤回。</p></article>
+</section>
+<section id="screens"><div class="section-head"><h2>三个关键时刻</h2><p>温暖底色、竖向大图与少量事实。短屏与大字模式优先保证信息和操作可达。</p></div><div class="screens">
+<figure><a href="references/01-entry.png" target="_blank" rel="noopener"><img src="references/01-entry.png" width="780" height="1688" alt="入口：这一顿凭眼缘，大幅食物图、出发点与两个使用入口" loading="lazy"></a><figcaption><strong>01 / 凭眼缘开始</strong><p>一句邀请，直接进入。真实选饭与体验入口保留文字。</p><a href="references/01-entry.svg" download>可编辑 SVG</a></figcaption></figure>
+<figure><a href="references/02-recommendation.png" target="_blank" rel="noopener"><img src="references/02-recommendation.png" width="780" height="1688" alt="大图推荐卡：菜名价格位置底栏，撤回、叉号与对勾操作" loading="lazy"></a><figcaption><strong>02 / 一滑做决定</strong><p>主卡不再放描述段落。保留图片标识和 ⓘ 详情入口。</p><a href="references/02-recommendation.svg" download>可编辑 SVG</a></figcaption></figure>
+<figure><a href="references/03-decided.png" target="_blank" rel="noopener"><img src="references/03-decided.png" width="780" height="1688" alt="已选定：菜品、位置、去这里按钮、撤回与可选反馈入口" loading="lazy"></a><figcaption><strong>03 / 选好就去吃</strong><p>停止推荐，路线优先。反馈按需展开，不阻挡下一步。</p><a href="references/03-decided.svg" download>可编辑 SVG</a></figcaption></figure>
+</div></section>
+<section id="gesture"><div class="section-head"><h2>轻轻一滑，表达判断</h2><p>卡片跟手，松手才提交。未达阈值回位，撤回保留条件和计时；理由与核验信息从详情展开。</p></div><a class="board" href="references/05-swipe-and-detail.png" target="_blank" rel="noopener"><img src="references/05-swipe-and-detail.png" width="2960" height="2400" alt="左滑换一个、右滑就吃这个的拖动反馈，以及详情弹层" loading="lazy"></a><p class="mini">以上为拖动中的静态参考。<a href="references/06-detail.png" target="_blank" rel="noopener">查看详情单图</a> · <a href="references/05-swipe-and-detail.svg" download>下载手势板 SVG</a></p></section>
+<section id="system"><div class="section-head"><h2>共同的视觉语法</h2><p>暖白、番茄色、系统中文黑体与统一线性图标。必要文字帮助用户理解事实和状态。</p></div><a class="board" href="references/04-style-board.png" target="_blank" rel="noopener"><img src="references/04-style-board.png" width="2960" height="2320" alt="色彩、图标、图片比例、字体和可撤回动作的基础规范" loading="lazy"></a></section>
+<section id="files" class="downloads"><h2>设计与开发资料</h2><p>设计说明包含手势阈值、动效、误操作、响应式和可访问性；PRD 已同步相关流程与记录口径。</p><div class="download-links"><a href="../吃什么_设计语言与视觉规范_v1.md">设计说明 v1.1</a><a href="../校园饭点辅助决策助手_PRD_MVP_v1.md">当前 PRD</a><a href="design-tokens.css" download>CSS 变量</a><a href="references/00-design-overview.svg" download>总览 SVG</a><a href="references/04-style-board.svg" download>规范板 SVG</a><a href="assets/SOURCES.md">图片来源</a></div></section>
+</main>
+<footer class="wrap">吃什么 · 设计语言 v1.1　/　参考图不代表可用的校园供给；生产界面应使用真实组件与经核实数据。</footer>
+</body></html>
+

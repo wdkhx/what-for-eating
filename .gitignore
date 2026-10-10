@@ -1,0 +1,16 @@
+# Local runtime output
+demo/*.log
+demo/qa/results.json
+
+# Temporary QA captures
+demo/qa/screenshots/tmp-*.png
+demo/qa/screenshots/failure-*.png
+
+# Local package archive; source files are tracked directly
+吃什么.zip
+
+# OS/editor files
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/

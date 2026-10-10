@@ -1,0 +1,121 @@
+:root {
+  color-scheme: light;
+  --color-bg: #fff9f2;
+  --color-surface: #ffffff;
+  --color-text: #2d2723;
+  --color-text-secondary: #746a62;
+  --color-brand-accent: #e9673f;
+  --color-action: #b84a30;
+  --color-action-hover: #a43e26;
+  --color-action-pressed: #913620;
+  --color-action-soft: #fbece3;
+  --color-border: #e8dfd6;
+  --color-control-border: #927f70;
+  --color-success-text: #44664d;
+  --color-success-bg: #edf2ea;
+  --color-uncertain-text: #98502e;
+  --color-uncertain-bg: #fff1de;
+  --color-error-text: #aa332b;
+  --color-disabled-bg: #ebe6e1;
+  --color-disabled-text: #81776e;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --font-size-display: 36px;
+  --font-size-dish: 24px;
+  --font-size-section: 20px;
+  --font-size-body: 16px;
+  --font-size-secondary: 14px;
+  --font-size-caption: 12px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --page-gutter: 16px;
+  --radius-small: 12px;
+  --radius-button: 16px;
+  --radius-card: 28px;
+  --radius-sheet: 24px;
+  --radius-pill: 999px;
+  --shadow-overlay: 0 12px 32px rgb(45 39 35 / 12%);
+  --motion-fast: 120ms;
+  --motion-normal: 180ms;
+  --motion-easing: cubic-bezier(.2, .7, .2, 1);
+  --control-min-height: 44px;
+  --button-primary-height: 56px;
+  --content-max-width: 480px;
+  --card-photo-height-reference: 492px;
+  --card-facts-min-height: 96px;
+  --control-undo-size: 48px;
+  --control-skip-size: 68px;
+  --control-accept-size: 76px;
+  --motion-return: 180ms;
+  --motion-commit: 200ms;
+}
+
+/* Component seeds for implementation, not a production application. */
+.eat-primary {
+  min-height: var(--button-primary-height);
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  background: var(--color-action);
+  color: #fff;
+  font: 600 18px/1.5 var(--font-ui);
+  cursor: pointer;
+  transition: background var(--motion-fast) var(--motion-easing);
+}
+.eat-primary:hover { background: var(--color-action-hover); }
+.eat-primary:active { background: var(--color-action-pressed); }
+.eat-primary:disabled {
+  background: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  cursor: default;
+}
+.eat-secondary {
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-control-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: 500 16px/1.5 var(--font-ui);
+}
+.eat-chip {
+  min-height: var(--control-min-height);
+  padding: 8px 14px;
+  border: 1px solid var(--color-control-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: 500 14px/1.5 var(--font-ui);
+}
+.eat-chip[aria-pressed='true'] {
+  background: var(--color-action-soft);
+  border-color: var(--color-action);
+  color: var(--color-action);
+}
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+}
+@media (max-width: 374px) {
+  :root { --page-gutter: 16px; --font-size-display: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-fast: 0ms; --motion-normal: 0ms; --motion-return: 0ms; --motion-commit: 0ms; }
+}
+
+/* Gesture handling must commit only on pointer release, never while crossing a threshold. */
+.eat-swipe-card { border-radius: var(--radius-card); background: var(--color-surface); overflow: hidden; touch-action: pan-y pinch-zoom; }
+.eat-card-photo { display: block; width: 100%; object-fit: cover; object-position: 50% 50%; }
+.eat-icon-button { display: inline-grid; place-items: center; min-width: 44px; min-height: 44px; padding: 0; border: 1px solid var(--color-control-border); border-radius: 50%; background: var(--color-surface); color: var(--color-text); cursor: pointer; }
+.eat-icon-button svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.eat-icon-button[data-action='accept'] { width: var(--control-accept-size); height: var(--control-accept-size); border-color: transparent; color: white; background: var(--color-action); }
+.eat-icon-button[data-action='skip'] { width: var(--control-skip-size); height: var(--control-skip-size); }
+.eat-icon-button[data-action='undo'] { width: var(--control-undo-size); height: var(--control-undo-size); }
+.eat-icon-button:disabled { color: var(--color-disabled-text); border-color: var(--color-border); cursor: default; }
+.eat-image-badge { background: var(--color-text); color: white; border-radius: var(--radius-pill); padding: 4px 10px; font-size: 12px; line-height: 18px; }
+.eat-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }

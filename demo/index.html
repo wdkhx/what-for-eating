@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF9F2">
+  <meta name="description" content="给这一顿一个具体提议。吃什么：一个纯静态、数据保存在本机的校园选饭 Demo。">
+  <title>吃什么 · 给这一顿一个提议</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <div id="storage-notice" class="storage-notice" role="status" hidden>本次记录暂不能保存，仍可继续选饭。</div>
+    <main id="app"></main>
+    <footer id="footer"></footer>
+  </div>
+  <dialog id="sheet" aria-labelledby="sheet-title"></dialog>
+  <div id="swipe-intent" class="swipe-intent" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status"></div>
+  <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <noscript>请开启 JavaScript 体验本地选饭 Demo。所有菜品均为示例，不对应真实档口。</noscript>
+</body>
+</html>
